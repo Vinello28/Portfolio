@@ -1,0 +1,70 @@
+# PORTFOLIO PROGETTI E CONTRIBUTI TECNICI
+
+## PROGETTI DI GRUPPO (Data Science, AI & Machine Learning)
+
+### Dora-the-Data-Explorer (Advanced Classification System)
+*   **Ambito:** Data Science / Supervised Learning
+*   **Descrizione Tecnica:** Sviluppo di una pipeline completa di Machine Learning per problemi di classificazione complessa. Il progetto ha coperto l'intero ciclo di vita del dato: dalla Data Ingestion ed Exploratory Data Analysis (EDA) avanzata per l'identificazione di pattern e outlier, fino alla Feature Engineering per massimizzare il contenuto informativo. È stata condotta una fase rigorosa di Model Selection e Hyperparameter Tuning per ottimizzare le metriche di performance (Accuracy, F1-Score, ROC-AUC), confrontando diversi algoritmi (es. Random Forest, XGBoost/Gradient Boosting) su dataset strutturati.
+*   **Ruolo:** Data Scientist & ML Engineer.
+
+### GoldenHour (Financial Time Series Forecasting)
+*   **Ambito:** Time Series Analysis / Quantitative Finance
+*   **Descrizione Tecnica:** Progetto di analisi predittiva su serie storiche finanziarie (valori metalli preziosi). Implementazione di modelli statistici e di Deep Learning per il forecasting. Il workflow ha incluso test di stazionarietà (Augmented Dickey-Fuller), decomposizione della serie (trend, stagionalità, residui) e l'applicazione di modelli ARIMA/SARIMA o LSTM. Validazione del modello tramite tecniche di backtesting e valutazione degli errori di predizione (RMSE, MAE) per garantire robustezza nelle previsioni di mercato.
+*   **Ruolo:** Data Scientist.
+
+### Uncounsciously-Sincere-Bot (Conversational AI with RASA)
+*   **Ambito:** NLP / Chatbot Development
+*   **Descrizione Tecnica:** Progettazione e implementazione di un assistente virtuale intelligente basato sul framework RASA Open Source. Sviluppo del motore NLU (Natural Language Understanding) per l'estrazione di intenti ed entità custom. Definizione delle "Stories" e delle regole per la gestione del flusso conversazionale (Dialogue Management). Integrazione di Custom Actions in Python per estendere le capacità del bot oltre le risposte statiche, il tutto containerizzato tramite Docker per il deployment.
+*   **Ruolo:** NLP Engineer & Backend Developer.
+
+### ALLMond (Modular NLP Pipeline)
+*   **Ambito:** Natural Language Processing / MLOps
+*   **Descrizione Tecnica:** Creazione di una pipeline NLP end-to-end modulare per l'elaborazione del linguaggio naturale. Il sistema orchestra diverse fasi di preprocessing (tokenization, lemmatization, stop-words removal) e task specifici (es. Sentiment Analysis, NER). L'architettura ibrida (Python backend + interfaccia Web) dimostra capacità di integrazione di modelli AI in applicazioni full-stack.
+*   **Ruolo:** AI Engineer & Full Stack Developer.
+
+### Graph-of-America (Network Science & Graph Theory)
+*   **Ambito:** Graph Analytics / Data Mining
+*   **Descrizione Tecnica:** Applicazione di tecniche di Network Science per l'analisi di strutture relazionali complesse. Utilizzo di librerie come NetworkX per la modellazione dei dati sotto forma di nodi e archi. Implementazione di algoritmi di centralità (PageRank, Betweenness Centrality) e Community Detection per estrarre insight strutturali non visibili con l'analisi tabulare tradizionale.
+*   **Ruolo:** Data Scientist (Graph Analytics).
+
+### Faboulous-Interpretr (NLP Application)
+*   **Ambito:** Natural Language Processing
+*   **Descrizione Tecnica:** Applicazione sperimentale di NLP focalizzata sull'interpretazione semantica del testo. Utilizzo di Jupyter Notebooks per la prototipazione rapida di algoritmi di text mining e language understanding.
+*   **Ruolo:** AI Engineer.
+
+### teampa-25/core
+*   **Descrizione:** Soluzione backend per una piattaforma di inferenza AI per modelli di Computer Vision.
+*   **Tecnologie:** TypeScript, Python, Docker, FastAPI, BullMQ.
+*   **Ruolo:** Software Engineer.
+
+---
+
+## PROGETTI INDIVIDUALI (Software Engineering & Computer Vision)
+
+### Boost-a-Model (Computer Vision & Deep Learning)
+*   **Ambito:** Deep Learning / Visual Servoing
+*   **Descrizione Tecnica:** Progetto universitario (9 CFU) focalizzato sul training, fine-tuning e validazione comparativa di architetture Transformer e CNN per task di Visual Servoing. Utilizzo intensivo di PyTorch/TensorFlow per la gestione dei tensori e l'addestramento su GPU. Analisi delle performance dei modelli tramite metriche di Computer Vision e ottimizzazione della pipeline di training.
+*   **Ruolo:** AI Engineer.
+
+### Bandolero (RAG Utility & SLM)
+*   **Ambito:** Generative AI / LLM Application
+*   **Tecnologie:** TypeScript, Golang, Qdrant, Docker, Ollama.
+*   **Descrizione Tecnica:** Sviluppo di un sistema RAG (Retrieval-Augmented Generation) che sfrutta Small Language Models (SLM) per QA su documenti PDF in ambiente multi-utente. Implementazione della logica di vector store e retrieval per contestualizzare le risposte del modello, ottimizzando il trade-off tra accuratezza e risorse computazionali.
+*   **Ruolo:** AI Engineer & Software Architect.
+
+### Open-Data-Chunker (High-Performance ETL)
+*   **Ambito:** Data Engineering
+*   **Tecnologie:** Python, Docker, DuckDB, Parquet.
+*   **Descrizione Tecnica:** Pipeline ETL ottimizzata per processare massicci file XML OpenData. Focus su efficienza algoritmica, gestione della memoria e parallelizzazione.
+*   **Ruolo:** Data Engineer.   
+
+### ASP.NET Core and MAUI Applications
+*   **Ambito:** Software Development (.NET/C#)
+*   **Tecnologie:** C#, .NET, MAUI, Syncfusion, Inno Setup.
+*   **Descrizione Tecnica:** Sviluppo di soluzioni enterprise e web, con focus su architetture robuste, sicurezza dei dati (crittografia custom) e automazione documentale.
+*   **Ruolo:** Lead Developer & Software Architect.
+
+### Algorithms and Data Structures (Progetto Finale)
+*   **Descrizione:** Implementazione in C puro di algoritmi complessi e strutture dati, con gestione avanzata della memoria e build system automatizzato.
+*   **Tecnologie:** C, CMake.
+*   **Ruolo:** Developer.
