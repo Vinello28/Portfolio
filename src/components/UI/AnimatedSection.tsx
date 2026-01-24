@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ReactNode } from 'react';
 
 interface AnimatedSectionProps {
@@ -9,16 +9,22 @@ interface AnimatedSectionProps {
 }
 
 export const AnimatedSection = ({ children, className = '', delay = 0, id }: AnimatedSectionProps) => {
+    const shouldReduceMotion = useReducedMotion();
+
     return (
-        <motion.div
+        <motion.section
             id={id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{
+                duration: 0.7,
+                delay,
+                ease: [0.22, 1, 0.36, 1]  // Custom easing for smooth feel
+            }}
             className={className}
         >
             {children}
-        </motion.div>
+        </motion.section>
     );
 };
