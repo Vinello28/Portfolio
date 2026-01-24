@@ -5,6 +5,7 @@ export interface Project {
     technologies: string[];
     role: string;
     githubUrl?: string;
+    liveUrl?: string;
     featured?: boolean;
 }
 
