@@ -88,12 +88,12 @@ export const About = () => {
 
                     <div className="space-y-8 relative">
                         {/* Timeline line */}
-                        <div className="absolute left-[11px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-[var(--accent-yellow)] via-[var(--accent-red)] to-[var(--accent-green)]" />
+                        <div className="absolute left-[9px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-[var(--accent-yellow)] via-[var(--accent-red)] to-[var(--accent-green)]" />
 
                         {education.map((edu, index) => (
                             <motion.div
                                 key={index}
-                                className="relative pl-10"
+                                className="relative pl-14"
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -101,7 +101,7 @@ export const About = () => {
                             >
                                 {/* Timeline dot */}
                                 <motion.span
-                                    className="absolute left-0 top-1.5 w-6 h-6 rounded-full border-4 border-[var(--bg-secondary)]"
+                                    className="absolute left-0 top-1.5 w-5 h-5 rounded-full border-[3px] border-[var(--bg-secondary)] z-10"
                                     style={{
                                         backgroundColor: index === 0 ? 'var(--accent-yellow)' :
                                             index === 1 ? 'var(--accent-red)' : 'var(--accent-green)'

@@ -54,7 +54,7 @@ export const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <ul className="flex items-center gap-1">
+                        <ul className="flex items-center gap-1 list-none">
                             {navLinks.map((link) => (
                                 <li key={link.href}>
                                     <a

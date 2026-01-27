@@ -93,7 +93,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                     {project.technologies.slice(0, 5).map((tech, idx) => (
                         <motion.span
                             key={idx}
-                            className="text-xs font-medium px-3 py-1.5 rounded-full bg-[var(--bg-primary)] text-[var(--text-secondary)] border border-[var(--glass-border)] transition-all hover:border-[var(--accent-yellow)] hover:text-[var(--text-primary)]"
+                            className="tech-badge"
                             whileHover={{ scale: 1.05, y: -2 }}
                         >
                             {tech}
