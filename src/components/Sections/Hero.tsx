@@ -48,17 +48,9 @@ export const Hero = () => {
                 style={{ opacity: 0.2 }}
             />
 
-            {/* Grid Pattern Background */}
-            <div
-                className="absolute inset-0 -z-10 opacity-[0.03]"
-                style={{
-                    backgroundImage: `linear-gradient(var(--text-primary) 1px, transparent 1px),
-                                      linear-gradient(90deg, var(--text-primary) 1px, transparent 1px)`,
-                    backgroundSize: '60px 60px'
-                }}
-            />
+            {/* Grid Pattern Background Removed */}
 
-            <div className="max-w-4xl z-10">
+            <div className="max-w-4xl z-10 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}

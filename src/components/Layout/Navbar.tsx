@@ -29,8 +29,8 @@ export const Navbar = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                        ? 'glass py-3 shadow-lg'
-                        : 'bg-transparent py-5'
+                    ? 'glass py-3 shadow-lg'
+                    : 'bg-transparent py-5'
                     }`}
             >
                 <div className="container flex items-center justify-between">
@@ -75,7 +75,6 @@ export const Navbar = () => {
 
                     {/* Mobile Menu Button */}
                     <div className="flex md:hidden items-center gap-4">
-                        <ThemeToggle />
                         <motion.button
                             onClick={() => setMobileOpen(!mobileOpen)}
                             className="p-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--glass-border)]"
