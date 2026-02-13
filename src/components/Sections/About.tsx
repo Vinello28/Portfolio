@@ -71,7 +71,7 @@ export const About = () => {
 
                 {/* Right Column - Education Timeline */}
                 <motion.div
-                    className="glass-card p-8 relative overflow-hidden"
+                    className="border-gradient p-8 relative overflow-hidden"
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -117,7 +117,7 @@ export const About = () => {
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
 
-                                <div className="group bg-lightgray">
+                                <div className="group">
                                     <h4 className="text-xl font-bold mb-1 group-hover:text-gradient transition-colors cursor-default">
                                         {edu.degree}
                                     </h4>
