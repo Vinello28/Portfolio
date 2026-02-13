@@ -116,7 +116,7 @@ export const Hero = () => {
                             <Github className="w-5 h-5" />
                         </motion.a>
                         <motion.a
-                            href="#"
+                            href="https://www.linkedin.com/in/gabriele-vianello-476a331a1"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="p-3 rounded-full bg-[var(--bg-secondary)] border border-[var(--glass-border)] transition-all hover:border-[var(--accent-green)] hover:shadow-[0_0_20px_var(--accent-green-glow)]"
@@ -126,7 +126,7 @@ export const Hero = () => {
                             <Linkedin className="w-5 h-5" />
                         </motion.a>
                         <motion.a
-                            href="mailto:contact@example.com"
+                            href="mailto:vianello.tech@gmail.com"
                             className="p-3 rounded-full bg-[var(--bg-secondary)] border border-[var(--glass-border)] transition-all hover:border-[var(--accent-red)] hover:shadow-[0_0_20px_var(--accent-red-glow)]"
                             whileHover={{ scale: 1.1, rotate: 5 }}
                             whileTap={{ scale: 0.95 }}
