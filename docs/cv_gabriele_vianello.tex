@@ -1,0 +1,209 @@
+%-------------------------
+% Curriculum Vitae — Gabriele Vianello
+% Tailored for: Bending Spoons Scholarship Application
+% Compiled with: pdflatex or xelatex
+%-------------------------
+\documentclass[a4paper,11pt]{article}
+
+%--- PACKAGES ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.8cm, top=1.6cm, bottom=1.6cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{parskip}
+
+%--- COLORS ---
+\definecolor{primary}{HTML}{1A1A2E}
+\definecolor{accent}{HTML}{0F3460}
+\definecolor{link}{HTML}{1565C0}
+\definecolor{subtle}{HTML}{555555}
+\definecolor{rule}{HTML}{CCCCCC}
+
+%--- HYPERLINK SETUP ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=link,
+    urlcolor=link,
+    pdfauthor={Gabriele Vianello},
+    pdftitle={CV Gabriele Vianello — Bending Spoons Scholarship},
+    pdfsubject={Curriculum Vitae},
+}
+
+%--- SECTION FORMATTING ---
+\titleformat{\section}
+  {\Large\bfseries\color{primary}}
+  {}{0em}{}
+  [\vspace{-0.6em}\textcolor{rule}{\rule{\textwidth}{0.4pt}}]
+
+\titlespacing*{\section}{0pt}{1.2em}{0.6em}
+
+%--- CUSTOM COMMANDS ---
+\newcommand{\cventry}[4]{%
+  \textbf{#1} \hfill \textcolor{subtle}{\small #2} \\
+  \textit{\color{accent}#3} \hfill \textcolor{subtle}{\small #4}
+}
+
+\newcommand{\cventrysingle}[2]{%
+  \textbf{#1} \hfill \textcolor{subtle}{\small #2}
+}
+
+\newcommand{\projectentry}[4]{%
+  \textbf{#1} — \textit{#2} \\
+  {\small #3} \\
+  {\footnotesize\textcolor{subtle}{Tecnologie: #4}}
+}
+
+%--- REMOVE PAGE NUMBER ---
+\pagestyle{empty}
+
+%--- DOCUMENT ---
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+  {\Huge\bfseries\color{primary} Gabriele Vianello} \\[0.5em]
+  {\large\color{accent} AI \& Data Science Engineer}
+  \vspace{0.6em}
+
+  \faIcon{envelope}\;\href{mailto:vianello.tech@gmail.com}{vianello.tech@gmail.com} \quad
+  \faIcon{github}\;\href{https://github.com/Vinello28}{Vinello28} \quad
+  \faIcon{linkedin}\;\href{https://www.linkedin.com/in/gabriele-vianello-476a331a1}{LinkedIn} \quad
+  \faIcon{map-marker-alt}\;Italia
+\end{center}
+
+\vspace{0.4em}
+
+% ============================================================
+% PROFILO
+% ============================================================
+\section{Profilo}
+Studente magistrale in Ingegneria Informatica con specializzazione in \textbf{Intelligenza Artificiale e Data Science}.
+Forte background in Machine Learning, Computer Vision a Data Engineering, affinato attraverso un percorso accademico d'eccellenza (Politecnico di Milano $\rightarrow$ Università Politecnica delle Marche) e oltre \textbf{14 progetti tecnici} che spaziano dalla classificazione semantica al forecasting finanziario.
+Appassionato nell'integrazione tra algoritmi complessi e software scalabile, con particolare attenzione alla qualità del codice e alle architetture production-ready.
+
+% ============================================================
+% FORMAZIONE
+% ============================================================
+\section{Formazione}
+
+\cventry{Laurea Magistrale in Ingegneria Informatica}{In corso}
+  {Università Politecnica delle Marche (UnivPM)}{Ancona}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=1pt]
+  \item Specializzazione in Artificial Intelligence \& Data Science.
+  \item Corsi chiave: Deep Learning, Computer Vision, NLP, Data Mining, Network Science.
+\end{itemize}
+
+\vspace{0.5em}
+
+\cventry{Laurea Triennale in Ingegneria dei Sistemi Informatici}{Completata}
+  {Politecnico di Milano}{Cremona/Milano}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=1pt]
+  \item Solida formazione in fondamenti dell'informatica, algoritmi, e architetture software.
+\end{itemize}
+
+\vspace{0.5em}
+
+\cventry{Diploma di Perito Informatico}{Completato}
+  {Istituto Tecnico Industriale V.\ Volterra}{Ancona}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=1pt]
+  \item Indirizzo Informatica e Telecomunicazioni, specializzazione Informatica.
+\end{itemize}
+
+% ============================================================
+% COMPETENZE TECNICHE
+% ============================================================
+\section{Competenze Tecniche}
+
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+  \textbf{AI \& Data Science} & PyTorch, TensorFlow/Keras, Scikit-learn, Pandas, RASA, Ollama, NetworkX, ONNX, Spacy \\[0.3em]
+  \textbf{Linguaggi}          & Python, C\#, TypeScript, Go, C, SQL, VB.NET \\[0.3em]
+  \textbf{Backend \& DevOps}  & FastAPI, .NET Core, Docker, PostgreSQL, DuckDB, Qdrant, GitHub Actions, BullMQ \\[0.3em]
+  \textbf{Frontend}           & React, Vite, TailwindCSS, Framer Motion, Syncfusion \\[0.3em]
+  \textbf{Metodologie}        & SWE, ETL Pipelines, RAG, Containerization, CI/CD, Agile \\
+\end{tabularx}
+
+% ============================================================
+% PROGETTI SELEZIONATI
+% ============================================================
+\section{Progetti Selezionati}
+
+\projectentry{Boost-a-Model}{AI Engineer — Progetto Universitario}
+{Training, fine-tuning e validazione comparativa di architetture \textbf{Transformer e CNN} per task di Visual Servoing. Utilizzo intensivo di PyTorch/TensorFlow per l'addestramento su GPU con analisi approfondita delle metriche di Computer Vision.}
+{PyTorch, TensorFlow, CUDA, Deep Learning}
+
+\vspace{0.6em}
+
+\projectentry{Pack-a-Punch}{AI Engineer}
+{Microservizio di \textbf{classificazione semantica} con pipeline di training e inference server dockerizzato, incluso export in formato ONNX per deployment ottimizzato.}
+{CUDA, Python, PyTorch, Docker, ONNX}
+
+\vspace{0.6em}
+
+\projectentry{Bandolero}{AI Engineer \& Software Architect}
+{Sistema \textbf{RAG (Retrieval-Augmented Generation)} che sfrutta Small Language Models per QA su documenti PDF in ambiente multi-utente. Implementazione di vector store con Qdrant e retrieval contestuale.}
+{Python, Golang, Qdrant, Docker, Ollama}
+
+\vspace{0.6em}
+
+\projectentry{Dora-the-Data-Explorer}{Data Scientist \& ML Engineer — Team Project}
+{Pipeline ML completa: da EDA avanzata a Feature Engineering e Model Selection (Random Forest, XGBoost). Ottimizzazione rigorosa di Accuracy, F1-Score e ROC-AUC tramite hyperparameter tuning.}
+{Python, Scikit-learn, XGBoost, Pandas}
+
+\vspace{0.6em}
+
+\projectentry{GoldenHour}{Data Scientist — Team Project}
+{Forecasting predittivo su \textbf{serie storiche finanziarie} (metalli preziosi). Implementazione di modelli ARIMA/SARIMA e LSTM con validazione tramite backtesting e valutazione RMSE/MAE.}
+{Python, TensorFlow/Keras, ARIMA, Time Series}
+
+\vspace{0.6em}
+
+\projectentry{Open-Data-Chunker}{Data Engineer}
+{Pipeline \textbf{ETL ad alte prestazioni} per processare massicci file XML OpenData. Focus su efficienza algoritmica, gestione della memoria e parallelizzazione con storage in formato Parquet.}
+{Python, Docker, DuckDB, Parquet}
+
+\vspace{0.6em}
+
+\projectentry{teampa-25/core}{Software Engineer — Team Project}
+{Soluzione backend per una piattaforma di \textbf{inferenza AI} su modelli di Computer Vision, con gestione asincrona dei task tramite code di messaggi.}
+{TypeScript, Python, Docker, FastAPI, BullMQ}
+
+% ============================================================
+% ALTRI PROGETTI RILEVANTI
+% ============================================================
+\section{Altri Progetti}
+
+\begin{multicols}{2}
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=3pt]
+  \item \textbf{Uncounsciously-Sincere-Bot} — Chatbot conversazionale con RASA, NLU custom e Docker.
+  \item \textbf{Faboulous-Interpretr} — Interpretazione semantica del testo e text mining sperimentale.
+  \item \textbf{ASP.NET Enterprise Solutions} — Soluzioni enterprise in C\#/.NET con crittografia custom e automazione documentale.
+\end{itemize}
+\end{multicols}
+
+% ============================================================
+% SOFT SKILLS E INTERESSI
+% ============================================================
+\section{Soft Skills \& Interessi}
+
+\begin{itemize}[leftmargin=1.2em, topsep=2pt, itemsep=2pt]
+  \item \textbf{Problem Solving} — Approccio analitico e orientato ai dati, dimostrato attraverso progetti che spaziano dall'ottimizzazione di pipeline ETL al fine-tuning di modelli neurali.
+  \item \textbf{Lavoro in Team} — Esperienza consolidata in progetti collaborativi universitari (7+ team project), con ruoli di SW e Data Engineer.
+  \item \textbf{Apprendimento Continuo} — Costante aggiornamento sulle tecnologie emergenti (LLM, vLLM, Podman) e del modo più efficiente ed efficace per implementarle.
+  \item \textbf{Comunicazione Tecnica} — Capacità di documentare e presentare soluzioni complesse in modo chiaro e accessibile.
+\end{itemize}
+
+\vspace{1.2em}
+\begin{center}
+  \small\textcolor{subtle}{Autorizzo il trattamento dei miei dati personali ai sensi del D.Lgs. 196/2003 e del GDPR (Reg. UE 2016/679).}
+\end{center}
+
+\end{document}
