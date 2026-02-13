@@ -6,7 +6,7 @@ export interface Project {
     role: string;
     githubUrl?: string;
     liveUrl?: string;
-    featured?: boolean;
+    teamProject?: boolean;
 }
 
 export interface Skill {

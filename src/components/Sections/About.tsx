@@ -93,7 +93,7 @@ export const About = () => {
                         {education.map((edu, index) => (
                             <motion.div
                                 key={index}
-                                className="relative pl-14"
+                                className="relative pl-14 mb-8"
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}

@@ -1,4 +1,4 @@
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, Users } from 'lucide-react';
 import { Project } from '../../types';
 import { motion } from 'framer-motion';
 
@@ -35,16 +35,29 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             <div className="relative p-8 h-full flex flex-col bg-[var(--bg-secondary)] rounded-[1.5rem] overflow-hidden z-10">
                 {/* Category Badge & Links */}
                 <div className="flex justify-between items-start mb-6">
-                    <motion.span
-                        className="text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full"
-                        style={{
-                            backgroundColor: colors.bg,
-                            color: colors.text,
-                        }}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        {project.category}
-                    </motion.span>
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <motion.span
+                            className="text-xs font-bold tracking-wider uppercase px-3 py-1.5 rounded-full"
+                            style={{
+                                backgroundColor: colors.bg,
+                                color: colors.text,
+                            }}
+                            whileHover={{ scale: 1.05 }}
+                        >
+                            {project.category}
+                        </motion.span>
+                        {project.teamProject && (
+                            <motion.span
+                                className="flex items-center gap-1 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full bg-[#7c3aed]/15 text-[#a78bfa] border border-[#7c3aed]/20"
+                                whileHover={{ scale: 1.05 }}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                            >
+                                <Users className="w-3 h-3" />
+                                Team
+                            </motion.span>
+                        )}
+                    </div>
                     <div className="flex items-center gap-2">
                         {project.githubUrl && (
                             <motion.a

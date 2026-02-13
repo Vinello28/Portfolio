@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const socialLinks = [
     { href: 'https://github.com/Vinello28', icon: Github, label: 'GitHub' },
-    { href: '#', icon: Linkedin, label: 'LinkedIn' },
+    { href: 'https://www.linkedin.com/in/gabriele-vianello-476a331a1', icon: Linkedin, label: 'LinkedIn' },
 ];
 
 export const Footer = () => {
