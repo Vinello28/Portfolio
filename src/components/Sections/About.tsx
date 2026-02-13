@@ -117,7 +117,7 @@ export const About = () => {
                                     transition={{ duration: 2, repeat: Infinity }}
                                 />
 
-                                <div className="group">
+                                <div className="group bg-lightgray">
                                     <h4 className="text-xl font-bold mb-1 group-hover:text-gradient transition-colors cursor-default">
                                         {edu.degree}
                                     </h4>
