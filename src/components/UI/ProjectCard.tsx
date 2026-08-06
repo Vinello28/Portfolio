@@ -1,4 +1,4 @@
-import { Github, ExternalLink, Users } from 'lucide-react';
+import { Github, ExternalLink, Users, Sparkles } from 'lucide-react';
 import { Project } from '../../types';
 import { motion } from 'framer-motion';
 
@@ -10,6 +10,7 @@ const categoryColors: Record<string, { bg: string; text: string; glow: string }>
     'AI/ML': { bg: 'var(--accent-yellow)', text: 'var(--bg-primary)', glow: 'var(--accent-yellow-glow)' },
     'Data': { bg: 'var(--accent-green)', text: 'var(--bg-primary)', glow: 'var(--accent-green-glow)' },
     'NLP': { bg: 'var(--accent-red)', text: 'var(--bg-primary)', glow: 'var(--accent-red-glow)' },
+    'Security': { bg: 'var(--accent-blue)', text: 'var(--bg-primary)', glow: 'var(--accent-blue-glow)' },
     'Software': { bg: 'var(--text-primary)', text: 'var(--bg-primary)', glow: 'rgba(128,128,128,0.3)' },
 };
 
@@ -46,6 +47,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
                         >
                             {project.category}
                         </motion.span>
+                        {project.featured && (
+                            <motion.span
+                                className="flex items-center gap-1 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full bg-[var(--accent-yellow)]/15 text-[var(--accent-yellow)] border border-[var(--accent-yellow)]/25"
+                                whileHover={{ scale: 1.05 }}
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                            >
+                                <Sparkles className="w-3 h-3" />
+                                Featured
+                            </motion.span>
+                        )}
                         {project.teamProject && (
                             <motion.span
                                 className="flex items-center gap-1 text-xs font-semibold tracking-wider uppercase px-3 py-1.5 rounded-full bg-[#7c3aed]/15 text-[#a78bfa] border border-[#7c3aed]/20"

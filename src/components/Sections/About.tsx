@@ -57,7 +57,7 @@ export const About = () => {
                         transition={{ delay: 0.3 }}
                     >
                         {[
-                            { value: '10+', label: 'Projects' },
+                            { value: '19+', label: 'Projects' },
                             { value: '2+', label: 'Years Learning' },
                             { value: '∞', label: 'Curiosity' },
                         ].map((stat, idx) => (

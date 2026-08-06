@@ -1,20 +1,21 @@
 import { AnimatedSection } from '../UI/AnimatedSection';
 import { skills } from '../../data/projects';
 import { motion } from 'framer-motion';
-import { Code2, Database, Brain, Wrench } from 'lucide-react';
+import { Code2, Server, Brain, Palette } from 'lucide-react';
+import { SkillAccent, SkillIcon } from '../../types';
 
-const categoryIcons: Record<string, React.ReactNode> = {
-    'Languages': <Code2 className="w-6 h-6" />,
-    'AI/ML': <Brain className="w-6 h-6" />,
-    'Data': <Database className="w-6 h-6" />,
-    'Tools': <Wrench className="w-6 h-6" />,
+const skillIcons: Record<SkillIcon, React.ReactNode> = {
+    brain: <Brain className="w-6 h-6" />,
+    code: <Code2 className="w-6 h-6" />,
+    server: <Server className="w-6 h-6" />,
+    palette: <Palette className="w-6 h-6" />,
 };
 
-const categoryColors: Record<string, string> = {
-    'Languages': 'var(--accent-yellow)',
-    'AI/ML': 'var(--accent-red)',
-    'Data': 'var(--accent-green)',
-    'Tools': 'var(--accent-yellow)',
+const skillColors: Record<SkillAccent, string> = {
+    yellow: 'var(--accent-yellow)',
+    red: 'var(--accent-red)',
+    green: 'var(--accent-green)',
+    blue: 'var(--accent-blue)',
 };
 
 export const Skills = () => {
@@ -59,7 +60,7 @@ export const Skills = () => {
                                 <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
                                     style={{
-                                        background: `radial-gradient(circle at 50% 0%, ${categoryColors[skillGroup.category] || 'var(--accent-yellow)'}20, transparent 70%)`
+                                        background: `radial-gradient(circle at 50% 0%, ${skillColors[skillGroup.accent]}20, transparent 70%)`
                                     }}
                                 />
 
@@ -68,16 +69,16 @@ export const Skills = () => {
                                     <motion.div
                                         className="p-2.5 rounded-xl"
                                         style={{
-                                            backgroundColor: `${categoryColors[skillGroup.category] || 'var(--accent-yellow)'}15`,
-                                            color: categoryColors[skillGroup.category] || 'var(--accent-yellow)'
+                                            backgroundColor: `${skillColors[skillGroup.accent]}15`,
+                                            color: skillColors[skillGroup.accent]
                                         }}
                                         whileHover={{ rotate: 10, scale: 1.1 }}
                                     >
-                                        {categoryIcons[skillGroup.category] || <Code2 className="w-6 h-6" />}
+                                        {skillIcons[skillGroup.icon]}
                                     </motion.div>
                                     <h3
                                         className="text-lg font-bold"
-                                        style={{ color: categoryColors[skillGroup.category] || 'var(--accent-yellow)' }}
+                                        style={{ color: skillColors[skillGroup.accent] }}
                                     >
                                         {skillGroup.category}
                                     </h3>
@@ -91,7 +92,7 @@ export const Skills = () => {
                                             className="px-3 py-1.5 text-sm font-medium rounded-full bg-[var(--bg-secondary)] text-[var(--text-secondary)] border border-[var(--glass-border)] transition-all cursor-default"
                                             whileHover={{
                                                 scale: 1.05,
-                                                borderColor: categoryColors[skillGroup.category] || 'var(--accent-yellow)',
+                                                borderColor: skillColors[skillGroup.accent],
                                                 color: 'var(--text-primary)'
                                             }}
                                         >

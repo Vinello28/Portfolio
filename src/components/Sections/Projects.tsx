@@ -4,12 +4,17 @@ import { ProjectCard } from '../UI/ProjectCard';
 import { projects } from '../../data/projects';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const CATEGORIES = ['All', 'AI/ML', 'Data', 'NLP', 'Software'];
+const CATEGORIES = ['All', 'AI/ML', 'Data', 'NLP', 'Security', 'Software'];
+
+// Featured first, then the original authoring order.
+const sortedProjects = [...projects].sort(
+    (a, b) => Number(b.featured ?? false) - Number(a.featured ?? false)
+);
 
 export const Projects = () => {
     const [filter, setFilter] = useState('All');
 
-    const filteredProjects = projects.filter(p =>
+    const filteredProjects = sortedProjects.filter(p =>
         filter === 'All' ? true : p.category === filter
     );
 

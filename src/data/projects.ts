@@ -2,6 +2,49 @@ import { Project, Skill, Education } from '../types';
 
 export const projects: Project[] = [
     {
+        title: "Graphagate",
+        category: "Security",
+        role: "AI Engineer & ML Researcher",
+        description: "Temporal Graph Network for unsupervised anomaly detection on Zero-Trust access streams. Trained on benign traffic only via negative sampling, it scores every access event in real time and catches contextual, policy, lateral-movement and credential-theft anomalies. Served as a REST inference microservice with anti-poisoning memory gating and dynamic node admission.",
+        technologies: ["PyTorch", "PyTorch Geometric", "FastAPI", "Docker", "CUDA", "Python"],
+        teamProject: false,
+        featured: true
+    },
+    {
+        title: "ZTALeaks",
+        category: "Security",
+        role: "Security & AI Engineer",
+        description: "Microservices reference implementation of a NIST SP 800-207 Zero Trust Architecture, simulating the control system of a nuclear power plant. Strict PEP/PDP separation across isolated network segments (nftables, Envoy with JA3 fingerprinting, Snort NIDS) with access decisions combining OPA Rego policies and real-time AI risk scores.",
+        technologies: ["Go", "OPA", "Envoy", "MongoDB", "Docker", "Snort", "Splunk"],
+        teamProject: true,
+        featured: true
+    },
+    {
+        title: "synThor",
+        category: "Data",
+        role: "Data Engineer & ML Engineer",
+        description: "Synthetic dataset generator for fine-tuning Vision-Language Models on document extraction. Produces perfectly aligned image and JSON ground-truth pairs across four document types and 11 Mediterranean languages, keeping the extraction schema fixed regardless of the language — exactly the signal a real extractor needs.",
+        technologies: ["Python", "PyMuPDF", "ReportLab", "Faker", "Unsloth"],
+        teamProject: false,
+        featured: true
+    },
+    {
+        title: "Charge-a-Sloth",
+        category: "AI/ML",
+        role: "AI Engineer",
+        description: "Optimized pipeline for fine-tuning multimodal vision-language models with Unsloth and QLoRA. Formats local parquet image/instruction datasets into chat templates and runs 4-bit PEFT training on Blackwell-class GPUs, exporting to GGUF and MXFP4.",
+        technologies: ["PyTorch", "Unsloth", "QLoRA", "Hugging Face", "CUDA"],
+        teamProject: false
+    },
+    {
+        title: "Pack-a-Mail",
+        category: "Software",
+        role: "Backend Engineer",
+        description: "High-throughput bulk email service written entirely in Go, shipping as a single static binary with an embedded web dashboard and a CGO-free SQLite backend. Clean Architecture (ports & adapters), Argon2id hashing, API-key CLI tooling and native Windows Service installation.",
+        technologies: ["Go", "SQLite", "HTMX", "Clean Architecture"],
+        teamProject: false
+    },
+    {
         title: "Bandolero",
         category: "AI/ML",
         role: "AI Engineer & Software Architect",
@@ -37,8 +80,8 @@ export const projects: Project[] = [
         title: "Pack-a-Punch",
         category: "AI/ML",
         role: "AI Engineer",
-        description: "Semantic classification microservice, with easy and dockerized training pipeline and inference server (in PyTorch).",
-        technologies: ["CUDA", "Python", "Torch", "Docker", "ONNX"],
+        description: "Binary classifier telling AI-generated from human-written Italian text, fine-tuned on bert-base-italian-xxl-cased. ONNX Runtime inference pipeline with CUDA and Metal acceleration (~110 req/s on consumer GPUs), knowledge distillation from large LLMs, and a fully containerized FastAPI service.",
+        technologies: ["Python", "PyTorch", "ONNX Runtime", "FastAPI", "CUDA", "Docker"],
         teamProject: false
     },
     {
@@ -118,19 +161,27 @@ export const projects: Project[] = [
 export const skills: Skill[] = [
     {
         category: "AI & Data Science",
-        items: ["PyTorch", "TensorFlow", "Scikit-learn", "Pandas", "RASA", "Ollama", "NetworkX"]
+        icon: "brain",
+        accent: "red",
+        items: ["PyTorch", "TensorFlow", "PyTorch Geometric", "Hugging Face", "Unsloth", "Scikit-learn", "Pandas", "RASA", "NetworkX"]
     },
     {
         category: "Programming",
+        icon: "code",
+        accent: "yellow",
         items: ["Python", "C#", "TypeScript", "Go", "C", "SQL", "VB.NET"]
     },
     {
-        category: "Backend & DevOps",
-        items: ["FastAPI", ".NET Core", "Docker", "PostgreSQL", "DuckDB", "GitHub Actions", "BullMQ"]
+        category: "Serving & DevOps",
+        icon: "server",
+        accent: "green",
+        items: ["vLLM", "ONNX Runtime", "Ollama", "FastAPI", "Docker", ".NET Core", "MongoDB", "PostgreSQL", "DuckDB", "Qdrant", "BullMQ", "GitHub Actions"]
     },
     {
         category: "Frontend",
-        items: ["React", "Vite", "TailwindCSS", "Framer Motion", "Syncfusion"]
+        icon: "palette",
+        accent: "blue",
+        items: ["React", "Vite", "TailwindCSS", "Framer Motion", "Syncfusion", "HTMX"]
     }
 ];
 
