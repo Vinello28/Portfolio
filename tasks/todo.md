@@ -82,3 +82,62 @@ Obiettivo: Rendere il CV in PDF (compilato da LaTeX) scaricabile dal sito con un
    - **Hero (`src/components/Sections/Hero.tsx`)**: aggiunto il pulsante "Download CV" affiancato al pulsante "View Projects" e al gruppo di icone social.
    - **Navbar (`src/components/Layout/Navbar.tsx`)**: aggiunto il trigger compatto sia per la barra desktop che per il menu overlay mobile.
    - **Contact (`src/components/Sections/Contact.tsx`)**: allineati email e LinkedIn reali per coerenza con l'Hero.
+
+---
+
+# Todo — Fix pulsanti CV + visibilità menu hamburger (2026-08-16)
+
+Segnalazione utente: i pulsanti CV nel **menu mobile** e nella **Hero** non funzionavano o erano
+formattati male; il menu hamburger doveva essere visibile **solo su schermi piccoli** (< 768px).
+
+## Causa radice
+
+Il progetto **non usa Tailwind**: nessun `tailwindcss` / `postcss` / `tailwind.config.*`. Tutto lo
+stile vive in `src/index.css`, scritto a mano, che re-implementa solo un sottoinsieme dei nomi di
+classe Tailwind usati nel JSX. Ogni classe non definita lì è silenziosamente inerte.
+
+## Interventi
+
+- [x] `src/index.css` — aggiunta `.md\:hidden` nel media query `768px` già esistente (era assente:
+      per questo hamburger, overlay, ThemeToggle e pill CV duplicati restavano visibili su desktop)
+- [x] `src/index.css` — aggiunta `.z-40` (usata dall'overlay mobile, non definita: l'overlay finiva
+      sotto ai contenuti con `z-10`)
+- [x] `src/index.css` — nuova `.mobile-menu-overlay` (l'overlay usava `bg-[var(--bg-primary)]/95` e
+      `backdrop-blur-xl`, entrambe inesistenti → overlay **trasparente**)
+- [x] `src/index.css` — nuovo blocco "CV Download Dropdown": `.cv-dd`, `.cv-trigger`
+      (+ `--nav`), `.cv-menu` (+ `--nav`), `.cv-menu__title`, `.cv-item` e relativi elementi.
+      Il pannello hero si apre **verso l'alto** (`bottom: 100%`) per non essere clippato
+      dall'`overflow-hidden` della sezione Hero e per stare bene nell'overlay mobile
+- [x] `src/components/UI/CVDownloadDropdown.tsx` — unificate le due varianti duplicate in un unico
+      render path con modificatori; sostituite le classi morte con le `.cv-*`; rimossi
+      `target="_blank"` / `rel` dagli `<a>` (bloccavano l'attributo `download`); testi uniformati;
+      rimossa la variante `'compact'` mai implementata
+- [x] `src/components/Layout/Navbar.tsx` — rimosso il pill CV duplicato dal cluster mobile (su
+      mobile il CV resta nell'overlay); overlay che ora usa `.mobile-menu-overlay`
+- [x] `tasks/lessons.md` — creato con le lezioni ricavate (assenza di Tailwind, `.border` senza
+      `border-style`, `overflow-hidden` e popover, `download` + `target`, `node` non installato)
+
+## Review
+
+**Verifica statica eseguita**
+
+- Ogni classe usata nei file toccati è stata verificata come presente in `src/index.css` (grep
+  automatico su tutte le `className`): nessuna classe morta residua.
+- Ordine sorgente controllato: `.flex` (615) precede `.md\:hidden` (640) → `flex md:hidden` viene
+  correttamente sovrascritto a ≥768px. Stessa specificità, vince l'ultima regola.
+- `button { border: none }` (:96) ha specificità inferiore a `.cv-trigger` → il bordo del pulsante
+  viene applicato.
+- Href CV già corretti: `public/cv_gabriele_vianello_{en,it}.pdf` esistono e `getAssetUrl` gestisce
+  `BASE_URL = /Portfolio/`.
+
+**Verifica NON eseguita (da fare)**
+
+`node` / `npm` non sono installati su questa macchina, quindi `npm run build`, `npm run lint` e
+`npm run dev` non sono stati eseguiti. Da confermare da parte dell'utente o dalla CI:
+
+1. `npm run build && npm run lint` → 0 errori
+2. `npm run dev`, controllo a 375px (hamburger presente, overlay opaco, CV nell'overlay che si apre
+   verso l'alto) e a 768px / 1280px (hamburger assente, un solo ThemeToggle, un solo pill CV)
+3. Download reale EN/IT dai 3 punti → `CV_Gabriele_Vianello_EN.pdf` / `_IT.pdf`
+4. Hero: dropdown non clippato dal bordo della sezione
+5. `Escape` e click esterno chiudono il menu

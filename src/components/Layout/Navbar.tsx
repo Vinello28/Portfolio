@@ -78,7 +78,6 @@ export const Navbar = () => {
 
                     {/* Mobile Menu Button */}
                     <div className="flex md:hidden items-center gap-3">
-                        <CVDownloadDropdown variant="navbar" />
                         <ThemeToggle />
                         <motion.button
                             onClick={() => setMobileOpen(!mobileOpen)}
@@ -96,7 +95,7 @@ export const Navbar = () => {
             <motion.div
                 initial={false}
                 animate={mobileOpen ? { opacity: 1, pointerEvents: 'auto' as const } : { opacity: 0, pointerEvents: 'none' as const }}
-                className="fixed inset-0 z-40 bg-[var(--bg-primary)]/95 backdrop-blur-xl md:hidden"
+                className="mobile-menu-overlay fixed inset-0 z-40 md:hidden"
             >
                 <motion.div
                     className="flex flex-col items-center justify-center h-full gap-8"
