@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 
 const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/Vinello28', icon: Github },
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
-    { name: 'Email', href: 'mailto:contact@example.com', icon: Mail },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/gabriele-vianello-476a331a1', icon: Linkedin },
+    { name: 'Email', href: 'mailto:vianello.tech@gmail.com', icon: Mail },
 ];
 
 export const Contact = () => {
@@ -76,7 +76,7 @@ export const Contact = () => {
 
                     {/* CTA Button */}
                     <motion.a
-                        href="mailto:contact@example.com"
+                        href="mailto:vianello.tech@gmail.com"
                         className="group relative inline-flex items-center gap-3 px-10 py-5 rounded-full text-lg font-bold overflow-hidden"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}

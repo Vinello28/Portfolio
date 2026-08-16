@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '../UI/ThemeToggle';
+import { CVDownloadDropdown } from '../UI/CVDownloadDropdown';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -53,7 +54,7 @@ export const Navbar = () => {
                     </motion.a>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden md:flex items-center gap-6">
                         <ul className="flex items-center gap-1 list-none">
                             {navLinks.map((link) => (
                                 <li key={link.href}>
@@ -70,15 +71,20 @@ export const Navbar = () => {
 
                         <div className="h-6 w-px bg-[var(--text-secondary)]/20" />
 
+                        <CVDownloadDropdown variant="navbar" />
+
                         <ThemeToggle />
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="flex md:hidden items-center gap-4">
+                    <div className="flex md:hidden items-center gap-3">
+                        <CVDownloadDropdown variant="navbar" />
+                        <ThemeToggle />
                         <motion.button
                             onClick={() => setMobileOpen(!mobileOpen)}
                             className="p-2 rounded-lg bg-[var(--bg-secondary)] border border-[var(--glass-border)]"
                             whileTap={{ scale: 0.9 }}
+                            aria-label="Toggle navigation menu"
                         >
                             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                         </motion.button>
@@ -111,6 +117,15 @@ export const Navbar = () => {
                             {link.label}
                         </motion.a>
                     ))}
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={mobileOpen ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                        transition={{ delay: navLinks.length * 0.1 }}
+                        className="pt-4"
+                    >
+                        <CVDownloadDropdown variant="hero" onItemClick={() => setMobileOpen(false)} />
+                    </motion.div>
                 </motion.div>
             </motion.div>
         </>

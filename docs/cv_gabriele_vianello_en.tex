@@ -1,0 +1,100 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+
+% Colors
+\definecolor{primary}{HTML}{000000}
+\definecolor{accent}{HTML}{2E5A88}
+\definecolor{link}{HTML}{1565C0}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=link,
+    urlcolor=link,
+    pdfauthor={Gabriele Vianello},
+    pdftitle={CV Gabriele Vianello}
+}
+
+\titleformat{\section}{\Large\bfseries\color{primary}}{}{0em}{}[\vspace{-0.5em}\rule{\textwidth}{0.4pt}]
+\titlespacing*{\section}{0pt}{1em}{0.5em}
+
+\newcommand{\cventry}[4]{
+  \noindent\textbf{#1} \hfill \textit{#2}\\
+  \textit{#3} \hfill #4\vspace{0.3em}
+}
+
+\newcommand{\projectentry}[3]{
+  \noindent\textbf{#1} | \textit{#2}\\
+  #3\vspace{0.3em}
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+  {\Huge\bfseries Gabriele Vianello} \\[0.5em]
+  {\Large\color{accent} AI \& Data Science Engineer} \\[0.5em]
+  \faEnvelope~\href{mailto:vianello.tech@gmail.com}{vianello.tech@gmail.com} \quad
+  \faGithub~\href{https://github.com/Vinello28}{Vinello28} \quad
+  \faLinkedin~\href{https://www.linkedin.com/in/gabriele-vianello-476a331a1}{LinkedIn} \quad
+  \faMapMarker~Italy
+\end{center}
+
+\vspace{0.5em}
+
+\section{Profile}
+Master's student in Computer Engineering (AI \& Data Science). Passionate about Machine Learning, Zero-Trust architectures, and Data Engineering. Proven hands-on experience in designing ML pipelines, fine-tuning state-of-the-art models (LLM/VLM), and developing high-performance backend systems.
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+  \textbf{AI \& Data Science:} & PyTorch, TensorFlow, Hugging Face, Unsloth, Scikit-learn, Pandas, PyTorch Geometric, QLoRA \\
+  \textbf{Programming:} & Python, Go, C\#, TypeScript, C, SQL \\
+  \textbf{Serving \& DevOps:} & Docker, FastAPI, vLLM, ONNX Runtime, Ollama, MongoDB, PostgreSQL, DuckDB, GitHub Actions \\
+  \textbf{Frontend:} & React, Vite, TailwindCSS, HTMX \\
+\end{tabularx}
+
+\section{Selected Projects}
+
+\projectentry{Graphagate}{AI Engineer \& ML Researcher}{Temporal Graph Network for unsupervised anomaly detection on Zero-Trust access streams. Trained via negative sampling to score events in real-time, catching contextual, policy, and lateral-movement anomalies. Served as a FastAPI microservice. \textit{Technologies: PyTorch, PyTorch Geometric, FastAPI, Docker}}
+
+\projectentry{ZTALeaks}{Security \& AI Engineer}{Microservices reference implementation of a NIST SP 800-207 Zero Trust Architecture. Features strict PEP/PDP separation across isolated network segments, with access decisions combining OPA Rego policies and real-time AI risk scores. \textit{Technologies: Go, OPA, Envoy, MongoDB, Docker, Snort}}
+
+\projectentry{synThor}{Data Engineer \& ML Engineer}{Synthetic dataset generator for fine-tuning Vision-Language Models on document extraction. Produces perfectly aligned image and JSON ground-truth pairs across 4 document types and 11 languages, maintaining a fixed extraction schema. \textit{Technologies: Python, PyMuPDF, ReportLab, Unsloth}}
+
+\projectentry{Pack-a-Punch}{AI Engineer}{Binary classifier distinguishing AI-generated from human-written Italian text, fine-tuned on bert-base-italian-xxl-cased. Inference pipeline optimized with ONNX Runtime and CUDA/Metal acceleration ($\sim$110 req/s). Fully containerized FastAPI service. \textit{Technologies: Python, PyTorch, ONNX Runtime, FastAPI, Docker}}
+
+\projectentry{Charge-a-Sloth}{AI Engineer}{Optimized pipeline for fine-tuning multimodal vision-language models with Unsloth and QLoRA. Formats local parquet datasets into chat templates and runs 4-bit PEFT training on Blackwell-class GPUs. \textit{Technologies: PyTorch, Unsloth, QLoRA, Hugging Face, CUDA}}
+
+\projectentry{Pack-a-Mail}{Backend Engineer}{High-throughput bulk email service written entirely in Go. Built with Clean Architecture (ports \& adapters), shipping as a single static binary with an embedded HTMX web dashboard, CGO-free SQLite backend, and Argon2id hashing. \textit{Technologies: Go, SQLite, HTMX, Clean Architecture}}
+
+\section{Education}
+\cventry{MSc in Computer Engineering (AI \& Data Science)}{Current}{Università Politecnica delle Marche}{Ancona, Italy}
+\vspace{-0.5em}
+\begin{itemize}[leftmargin=1.5em, itemsep=0pt, topsep=0pt]
+  \item Key courses: Deep Learning, Computer Vision, NLP, Data Mining, Network Science.
+\end{itemize}
+
+\vspace{0.5em}
+\cventry{BSc in Engineering of Computing Systems}{Completed}{Politecnico di Milano}{Cremona/Milano, Italy}
+\vspace{-0.5em}
+\begin{itemize}[leftmargin=1.5em, itemsep=0pt, topsep=0pt]
+  \item Strong foundation in computer science, algorithms, and software architecture.
+\end{itemize}
+
+\vspace{0.5em}
+\cventry{High School Diploma (Computer Science)}{Completed}{Istituto Tecnico Industriale V. Volterra}{Ancona, Italy}
+\vspace{-0.5em}
+\begin{itemize}[leftmargin=1.5em, itemsep=0pt, topsep=0pt]
+  \item Specialization in Computer Science and Telecommunications.
+\end{itemize}
+
+\end{document}

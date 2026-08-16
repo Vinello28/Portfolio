@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Github, Mail, Linkedin } from 'lucide-react';
+import { CVDownloadDropdown } from '../UI/CVDownloadDropdown';
 
 export const Hero = () => {
     return (
@@ -94,7 +95,7 @@ export const Hero = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex flex-wrap items-center gap-6"
+                    className="flex flex-wrap items-center gap-4 sm:gap-6"
                 >
                     <a
                         href="#projects"
@@ -103,6 +104,8 @@ export const Hero = () => {
                         <span>View Projects</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
+
+                    <CVDownloadDropdown variant="hero" />
 
                     <div className="flex items-center gap-3">
                         <motion.a

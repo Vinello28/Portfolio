@@ -30,39 +30,55 @@ pattern esistenti + migliorie concordate con l'utente.
 - [x] `src/components/Sections/Skills.tsx` — **fix bug**: mappe icone/colori su chiavi inesistenti
 - [x] `src/components/Sections/About.tsx` — stat progetti `10+` → `19+`
 
-## Verifica
+## Creazione CV in LaTeX (Italiano e Inglese)
 
-- [ ] `npm run lint` — **NON eseguito**: nessun runtime Node sulla macchina (`npm`/`node` assenti
-      dal PATH) e daemon Docker non attivo per il fallback in container.
-- [ ] `npm run build` (tsc + vite) — stesso motivo.
-- [x] Conteggio progetti coerente con i filtri: 19 totali → AI/ML 4, Data 6, NLP 3, Security 2,
-      Software 4. Nessuna categoria orfana rispetto a `CATEGORIES`.
-- [x] Revisione statica dei tipi: `Skill` ora richiede `icon`/`accent` e tutte e 4 le voci li
-      hanno; `Record<SkillIcon, …>` e `Record<SkillAccent, …>` sono esaustivi (il compilatore
-      segnala se una chiave manca); nessun import inutilizzato in `Skills.tsx` (`Code2` resta
-      usato dalla mappa) e `Sparkles` è usato in `ProjectCard`.
-- [x] `git check-ignore docs/README-2.md` → regola attiva.
+- [x] Scrivere `docs/cv_gabriele_vianello_it.tex`
+- [x] Scrivere `docs/cv_gabriele_vianello_en.tex`
+- [x] Compilare entrambi i file in PDF.
+- [x] Rimuovere il vecchio CV.
+
+---
+
+# Todo — Download CV dal sito web
+
+Obiettivo: Rendere il CV in PDF (compilato da LaTeX) scaricabile dal sito con un button/icona dedicato ed elegante.
+
+## Piano di lavoro
+
+- [x] **1. Gestione Asset Statici**:
+  - [x] Creare la cartella `public/` (standard Vite)
+  - [x] Copiare `docs/cv_gabriele_vianello_it.pdf` e `docs/cv_gabriele_vianello_en.pdf` in `public/`
+  - [x] Assicurare la corretta risoluzione dei percorsi con `import.meta.env.BASE_URL` (`/Portfolio/`) per la compatibilità con GitHub Pages e ambienti locali
+
+- [x] **2. Componenti UI & Design**:
+  - [x] Creare il componente interattivo `src/components/UI/CVDownloadDropdown.tsx` con menu popover a tendina per la selezione lingua (🇬🇧 English / 🇮🇹 Italiano), chiusura su click outside / Escape e animazioni fluide Framer Motion
+  - [x] Integrare il pulsante principale `Download CV` nella sezione **Hero** (`src/components/Sections/Hero.tsx`) accanto a "View Projects" e alle icone social
+  - [x] Integrare il pulsante/badge `CV` nella **Navbar** (`src/components/Layout/Navbar.tsx`) sia nella navigazione desktop che nel menu mobile
+  - [x] Allineare i link di contatto in `src/components/Sections/Contact.tsx` con email e profilo LinkedIn corretti
+
+- [x] **3. Verifica & Test**:
+  - [x] Controllo statico TypeScript superato (`tsc --noEmit` exit code 0)
+  - [x] Linting superato (`eslint` exit code 0, 0 warning, 0 errori)
+  - [x] Verifica attributi di download (`download="CV_Gabriele_Vianello_EN.pdf"` / `download="CV_Gabriele_Vianello_IT.pdf"`, `target="_blank"`, `rel="noopener noreferrer"`)
+  - [x] Verifica asset in `public/` e `dist/`
+
+- [x] **4. Documentazione & Review**:
+  - [x] Aggiornare `tasks/todo.md` con il log delle modifiche e la sezione Review
 
 ## Review
 
-**Cosa è cambiato**
+**Cosa è stato implementato**
 
-- 5 progetti nuovi (Graphagate, ZTALeaks, synThor, Charge-a-Sloth, Pack-a-Mail) + Pack-a-Punch
-  riscritto sulla base del README (BERT italiano, ONNX Runtime, distillation, ~110 req/s).
-- Categoria **Security** con accento blu dedicato (`--accent-blue`), nuovo filtro nella sezione
-  Projects. Graphagate è classificato Security e non AI/ML: la natura ML resta leggibile dai badge
-  tecnologici, mentre così il filtro Security ha massa critica e il taglio cybersecurity emerge.
-- Flag `featured` + ordinamento featured-first (sort stabile, l'ordine di scrittura è preservato
-  dentro i due gruppi) e badge "Featured" sulla card.
-- **Bug corretto** in `Skills.tsx`: le mappe icone/colori erano chiavate su categorie inesistenti
-  (`Languages`, `Tools`, …), quindi ogni card cadeva sul fallback giallo/Code2. Risolto alla
-  radice spostando `icon`/`accent` nel dato con union type: una futura rinomina di categoria non
-  può più rompere silenziosamente lo stile.
-- Skills: gruppo "Backend & DevOps" → "Serving & DevOps" con vLLM, ONNX Runtime, Ollama, MongoDB;
-  aggiunti PyTorch Geometric, Hugging Face, Unsloth all'area AI; HTMX al frontend.
-- `docs/README*.md` ignorato (i README dei progetti privati non finiscono nel repo pubblico;
-  `cv.pdf`/`cv.tex`, già tracciati, restano dov'erano).
-
-**Non fatto (in attesa)**
-
-- Nessun `githubUrl`: da decidere quali repo sono pubblici. Il campo e la UI del link esistono già.
+1. **Asset statici**: Creata la cartella `public/` e inseriti entrambi i PDF compilati da LaTeX:
+   - `public/cv_gabriele_vianello_en.pdf` (versione Inglese)
+   - `public/cv_gabriele_vianello_it.pdf` (versione Italiana)
+2. **Componente `CVDownloadDropdown` (`src/components/UI/CVDownloadDropdown.tsx`)**:
+   - Menu a tendina/popover con design glassmorphism perfettamente integrato con il tema del sito (Light/Dark mode).
+   - Supporto per due varianti: `hero` (pulsante completo con icona, testo e freccia) e `navbar` (badge compatto ed elegante).
+   - Selezione rapida tra versione Inglese (🇬🇧 EN) e Italiana (🇮🇹 IT) con indicazione visiva "LaTeX PDF", icona di download e feedback di download effettuato (icona check verde animata).
+   - Chiusura automatica al click esterno (outside click) e alla pressione del tasto `Escape`.
+   - Risoluzione robusta dei percorsi con `import.meta.env.BASE_URL` per funzionare sia in locale che nel deploy GitHub Pages sotto la base `/Portfolio/`.
+3. **Integrazione nelle sezioni**:
+   - **Hero (`src/components/Sections/Hero.tsx`)**: aggiunto il pulsante "Download CV" affiancato al pulsante "View Projects" e al gruppo di icone social.
+   - **Navbar (`src/components/Layout/Navbar.tsx`)**: aggiunto il trigger compatto sia per la barra desktop che per il menu overlay mobile.
+   - **Contact (`src/components/Sections/Contact.tsx`)**: allineati email e LinkedIn reali per coerenza con l'Hero.
